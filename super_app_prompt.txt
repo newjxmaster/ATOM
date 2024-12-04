@@ -1,0 +1,101 @@
+
+Create a Python-based super app using Streamlit as the user interface. This app will run within a secure and isolated containerized environment, allowing an AI assistant to perform tasks autonomously, similar to a human operator, with no operational limits. The app should integrate key capabilities inspired by OS-Copilot and Anthropic's Computer Use demo, providing advanced tools for system interaction, automation, and user interaction.
+
+### Application Overview
+- **Purpose:** Enable an AI assistant to interact with an Ubuntu virtual machine to perform complex tasks autonomously while being accessible via a Streamlit-based interface.
+- **Environment:** The app operates in a secure, sandboxed container to ensure safe execution of all commands and tasks.
+- **AI Providers:** Support for both OpenAI and Anthropic models, with user-selectable preferences.
+
+### Key Features
+1. **Autonomous AI Operations:**
+   - The AI assistant can freely navigate, interact with, and control the virtual environment.
+   - Full access to system commands, GUI automation, and file manipulation.
+   - Capability to handle multiple tasks simultaneously using a tool orchestration framework.
+
+2. **Integrated Tools:**
+   - **BashTool:** Execute system commands, scripts, and manage shell operations.
+   - **ComputerTool:** Control GUI actions, such as mouse movements, keyboard typing, and taking screenshots.
+   - **EditTool:** View, create, edit, and delete files with detailed version tracking and undo capabilities.
+   - **Custom Tools:** Dynamically add or configure tools for specialized tasks.
+
+3. **Streamlit User Interface:**
+   - **Settings Tab:**
+     - Allow users to select the AI provider (OpenAI or Anthropic).
+     - Configure API keys and model preferences for the selected provider.
+   - **Chat Tab:**
+     - A conversational interface where users interact with the assistant.
+     - Display contextual responses, results of executed commands, and screenshots.
+   - **Tools Tab:**
+     - Provide manual controls for GUI automation and file manipulation.
+     - Configure tool parameters such as scaling, timeout, and execution limits.
+   - **Logs Tab:**
+     - Display detailed logs of executed commands, tool interactions, and system outputs.
+   - **Performance Metrics Tab:**
+     - Show system resource usage (CPU, memory) and task execution times for transparency.
+
+4. **AI Integration:**
+   - **System Prompt for OpenAI and Anthropic:**
+     - Guide the assistant with detailed instructions about the environment, tools, and tasks.
+   - Example Prompt:
+     ```plaintext
+     You are an AI assistant operating in a secure Ubuntu environment. Your goal is to perform tasks autonomously using tools like BashTool, EditTool, and ComputerTool. Execute all commands efficiently, safely, and accurately. Log every action transparently and validate each result before proceeding. Your environment includes a GUI and full terminal access.
+     ```
+   - Dynamic adjustment of prompts based on the selected provider and user context.
+
+5. **Capabilities:**
+   - **Shell Command Execution:**
+     - Execute Linux commands with detailed output handling.
+     - Handle errors and retries gracefully.
+   - **GUI Automation:**
+     - Simulate mouse clicks, drag actions, and keyboard inputs.
+     - Take and analyze screenshots for context-based interactions.
+   - **File Management:**
+     - Edit configuration files, search for specific text, and undo changes.
+     - Automatically back up files before significant modifications.
+   - **Task Orchestration:**
+     - Chain multiple tool executions for complex workflows.
+     - Dynamically prioritize tasks based on user input or system state.
+
+6. **Security and Isolation:**
+   - All operations occur in a sandboxed containerized environment.
+   - Prevent harmful actions from affecting the host system.
+   - Enable logging and auditing of every executed command for accountability.
+
+7. **AI Model Selection:**
+   - **OpenAI Integration:**
+     - Leverage models like GPT-4 for natural language understanding and task planning.
+   - **Anthropic Integration:**
+     - Use Claude for advanced reasoning and safer AI interactions.
+   - Ensure seamless switching between providers with user-configurable settings.
+
+8. **Scalability:**
+   - Design the app to scale, supporting multiple concurrent user sessions.
+   - Optimize tools and AI interactions for efficient resource usage.
+
+### Technical Requirements
+1. **Backend:**
+   - Implement tools using Python and asynchronous programming (`asyncio`).
+   - Use classes to encapsulate tool logic and manage tool state dynamically.
+   - Leverage libraries such as `xdotool` for GUI automation, `pytesseract` for OCR, and `scrot` for screenshots.
+2. **Frontend:**
+   - Streamlit for real-time interactivity.
+   - Responsive design with tabs for settings, tools, logs, and performance metrics.
+3. **Deployment:**
+   - Package the app with Docker for containerization.
+   - Include configuration scripts for setting up dependencies (e.g., `xdotool`, `Tesseract`).
+4. **Documentation:**
+   - Provide detailed instructions for setting up, running, and extending the app.
+   - Include examples for common workflows, such as editing files or automating GUI tasks.
+
+### Example Scenarios
+- Open Firefox, search for "Streamlit tutorials," and take a screenshot.
+- Edit the `nginx.conf` file, replace a configuration value, and restart the server.
+- Automate installation of software packages and verify their versions.
+- Navigate GUI elements, such as opening a terminal and executing commands, with screenshots for validation.
+
+### Additional Considerations
+- Provide modular tool integration for easy extensibility.
+- Include test cases to validate tool functionality and AI responses.
+- Optimize performance for fast execution of tasks and responsive user interactions.
+
+Deliver the app with clear code comments, modular implementations, and a robust structure that ensures maintainability and scalability.
